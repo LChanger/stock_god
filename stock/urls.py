@@ -16,9 +16,13 @@ Including another URLconf
 
 # Routers provide an easy way of automatically determining the URL conf.
 from django.conf.urls import url
-from stock_info import views
-
+from django.urls import path
+from stock import views
+from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = [
-    url('stock/info/', views.stock_info_list),
-    url('stock/info/<int:pk>/', views.stock_info_detail),
+    path('stock/info/', views.StockInfoList.as_view()),
+    path('stock/info/<str:pk>/', views.StockInfoDetail.as_view()),
+
+    path('', views.api_root),
+    path('stock/info/<int:pk>/highlight/', views.StockHighlight.as_view(),name='stockInfo-highlight'),
 ]
