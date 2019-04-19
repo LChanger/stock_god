@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
 # Create your views here.
-from django.contrib.auth.models import User, Group #引入model
-from rest_framework import viewsets #引入viewsets，类似controllers
-from stock.serializers import UserSerializer, GroupSerializer,stock_info_serializer#引入刚刚定义的序列化器
+from django.contrib.auth.models import User, Group  # 引入model
+from rest_framework import viewsets  # 引入viewsets，类似controllers
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
+
+from stock.serializers import UserSerializer, GroupSerializer  # 引入刚刚定义的序列化器
+
+
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
@@ -21,12 +25,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
+from django.http import HttpResponse
 from rest_framework import generics,status,renderers
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
@@ -35,6 +35,7 @@ from stock.permissions import IsOwnerOrReadOnly
 from stock.serializers import *
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
+import datetime
 #用于登录
 class UserLoginAPIView(APIView):
     queryset = models.Customer.objects.all()
@@ -118,36 +119,102 @@ class StockInfoList(generics.ListCreateAPIView):
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response(datas)
-# 增删改查
+# 增删改查 stock_info
 class StockInfoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.stock_info.objects.all()
     serializer_class = stock_info_serializer
-@csrf_exempt
-def stock_info_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
-    if request.method == 'GET':
-        stock_infos = models.stock_info.objects.all()
-        serializer = stock_info_serializer(stock_infos, many=True)
-        return JsonResponse(serializer.data, safe=False)
 
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = stock_info_serializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
-    elif request.method=='PATCH':
-        datas = JSONParser().parse(request)
-        for data in datas:
-            serializer = stock_info_serializer(data=data)
-            if serializer.is_valid():
-                serializer.save()
-                return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+#统计信息的增删改查(根据id)
+class StatisticsViewSet(viewsets.ModelViewSet):
+    queryset = models.propensity_statistics.objects.all()
+    serializer_class = StatisticsSerializer
+    #重写了get_object方法，若传入code和date则根据code和date检索，否则还是调用父类方法按照pk检索
+    def get_set(self,code=None,date=None,days=None):
+        # if code==None and date==None:
+        #     return self.get_object()
+        try:
+            if days == None:
+                if code==None:return models.propensity_statistics.objects.filter(date=date)#查询某一天的所有记录
+                elif date==None:return models.propensity_statistics.objects.filter(stock_code=code)#查询某支股票的所有记录
+                return models.propensity_statistics.objects.get(stock_code=code, date=date)#查询某一天某支股票统计
+            elif date==None:#code 和 days 查询
+                return models.propensity_statistics.objects.filter(stock_code=code).order_by('date')[:int(days)]
+            return models.propensity_statistics.objects.filter(stock_code=code,
+                                                               date__gt=self.get_day_nday_ago(date,days,),
+                                                               date__lte=date
+                                                               )
+        except models.propensity_statistics.DoesNotExist:
+            raise Response(status=status.HTTP_400_BAD_REQUEST)
+    def list(self, request,*args, **kwargs):
+        code = request.GET.get("stock_code")
+        date = request.GET.get("date")
+        days=request.GET.get("days")
+        if code==None and date==None and days==None:
+            return super().list(request,*args, **kwargs)
+        statistics = self.get_set(code,date,days)
+        if days == None and code!=None and date!=None:serializer = StatisticsSerializer(statistics)#若不传入day则只需序列化字典
+        else:serializer=self.get_serializer(statistics,many=True)#需要序列化数组
+        return Response(serializer.data)
 
+    def get_day_nday_ago(self,date, n):
+        t= date.split('-')
+        n=int(n)
+        y,m,d=int(t[0]),int(t[1]),int(t[2])
+        Date = datetime.date(y, m, d) - datetime.timedelta(n)
+        return Date
+# class StatisticsDetail(APIView,StatisticsViewSet):
+#     def update(self, request,*args, **kwargs):
+#         code = request.GET.get("stock_code")
+#         date = request.GET.get("date")
+#         if code==None and date==None:
+#             return super().update(request,*args, **kwargs)
+#         partial = kwargs.pop('partial', False)
+#         instance = self.get_object(code,date)
+#         serializer = self.get_serializer(instance, data=request.data, partial=partial)
+#         serializer.is_valid(raise_exception=True)
+#         self.perform_update(serializer)
+#         if getattr(instance, '_prefetched_objects_cache', None):
+#             # If 'prefetch_related' has been applied to a queryset, we need to
+#             # forcibly invalidate the prefetch cache on the instance.
+#             instance._prefetched_objects_cache = {}
+#         return Response(serializer.data)
+#     def destroy(self, request,*args, **kwargs):
+#         code = request.GET.get("stock_code")
+#         date = request.GET.get("date")
+#         if code==None and date==None:
+#             return super().destroy(request,*args, **kwargs)
+#         instance = self.get_object(code,date)
+#         self.perform_destroy(instance)
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+
+# comment 情感分析
+class CommentAnalysis(APIView):
+    """
+    comment annalysis  by rules  and  LSTM
+    """
+    from stanfordcorenlp import StanfordCoreNLP
+    nlp = StanfordCoreNLP(r'F:\Graduationproject\stanford-corenlp-full-2016-10-31', lang='zh')
+    from sentiment_analysis import Any
+    a = Any.Analysis()
+    a.sentiment_init()
+    # def __del__(self):
+    #     self.nlp.close()
+    def post(self, request, format=None):
+        comment = request.data.get('comment')
+        if comment==None:
+            return Response('输入为空', status=status.HTTP_400_BAD_REQUEST)
+        pposRules,pnegRules=self.sentiment_by_rules(comment)
+        data = {'pposRules': pposRules,
+                'pnegRules': pnegRules,
+                }
+        import json
+        payload = json.dumps(data)
+        return Response(payload,status=status.HTTP_201_CREATED)
+    def sentiment_by_rules(self,comment):
+        posscore, negscore=self.a.sentiment_by_rules(self.nlp.word_tokenize(comment), self.nlp.dependency_parse(comment))
+        ppos= float(posscore)/ (float(posscore)+ float(negscore))#正向可能性
+        pneg=1-ppos#负向可能性
+        return ppos,pneg
 def add_stock_info(request):
     if request.method=='POST':
         serializer = stock_info_serializer(data=request.body)

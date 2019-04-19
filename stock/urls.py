@@ -21,8 +21,9 @@ from stock import views
 from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = [
     path('stock/info/', views.StockInfoList.as_view()),
-    path('stock/info/<str:pk>/', views.StockInfoDetail.as_view()),
-
+    path('stock/info/<str:pk>/', views.StockInfoDetail.as_view()),#detail about stock_info
     path('', views.api_root),
     path('stock/info/<int:pk>/highlight/', views.StockHighlight.as_view(),name='stockInfo-highlight'),
+    # url(r'^statistics/union/$',views.StatisticsDetail.as_view())
+    path('comment/analysis/', views.CommentAnalysis.as_view()),#评论倾向分析
 ]

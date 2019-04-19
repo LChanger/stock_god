@@ -5,29 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f08c9bb-6c86-42e4-89a9-eed1dd0c786f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/stock_god.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stock_god.iml" afterDir="false" />
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis/Any.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/Any.py" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_god/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock_god/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_god/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock_god/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock_info/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis/Any.py" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/Any.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis/dict/emotion_dict/neg_all_dict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/dict/emotion_dict/neg_all_dict.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentiment-analysis/dict/emotion_dict/pos_all_dict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sentiment-analysis/dict/emotion_dict/pos_all_dict.txt" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+<<<<<<< Updated upstream
+    <SUITE FILE_PATH="coverage/stock_god$Any.coverage" NAME="Any Coverage Results" MODIFIED="1555463595612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sentiment-analysis" />
+=======
+    <SUITE FILE_PATH="coverage/stock_god$Any.coverage" NAME="Any Coverage Results" MODIFIED="1555463007640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sentiment-analysis" />
+>>>>>>> Stashed changes
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -49,21 +48,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stock_god/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
-              <folding>
-                <element signature="e#643#675#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stock/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="228">
               <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
               <folding>
                 <element signature="e#0#80#0" expanded="true" />
@@ -72,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stock/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="82" column="98" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="98" />
+            <state relative-caret-position="1596">
+              <caret line="90" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -85,9 +72,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../LSTM-Sentiment-Analysis-master/LSTM_emotion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1862">
+              <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sentiment-analysis/Any.py">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+            <state relative-caret-position="361">
+              <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+              <folding>
+                <element signature="e#17#30#0" expanded="true" />
+              </folding>
+=======
+            <state relative-caret-position="43">
+              <caret line="155" column="65" selection-start-line="155" selection-start-column="65" selection-end-line="155" selection-end-column="65" />
+>>>>>>> Stashed changes
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/rest_framework/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
+            <state relative-caret-position="9006">
               <caret line="491" selection-start-line="491" selection-end-line="491" />
             </state>
           </provider>
@@ -96,7 +109,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stock_god/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="2223">
               <caret line="117" column="31" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="31" />
             </state>
           </provider>
@@ -114,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stock/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="437">
               <caret line="26" column="102" selection-start-line="26" selection-start-column="102" selection-end-line="26" selection-end-column="102" />
               <folding>
                 <element signature="e#717#749#0" expanded="true" />
@@ -157,7 +170,6 @@
         <option value="$PROJECT_DIR$/stock_info/models.py" />
         <option value="$PROJECT_DIR$/stock_info/urls.py" />
         <option value="$PROJECT_DIR$/stock_info/serializers.py" />
-        <option value="$PROJECT_DIR$/sentiment-analysis/Any.py" />
         <option value="$PROJECT_DIR$/stock/permissions.py" />
         <option value="$PROJECT_DIR$/stock_god/settings.py" />
         <option value="$PROJECT_DIR$/stock/models.py" />
@@ -167,6 +179,7 @@
         <option value="$PROJECT_DIR$/stock/urls.py" />
         <option value="$PROJECT_DIR$/stock_god/urls.py" />
         <option value="$PROJECT_DIR$/stock/views.py" />
+        <option value="$PROJECT_DIR$/sentiment-analysis/Any.py" />
       </list>
     </option>
   </component>
@@ -219,7 +232,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/spider" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -243,7 +256,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Any">
+    <configuration name="Any" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="stock_god" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sentiment-analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sentiment-analysis/Any.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="stock_god" type="Python.DjangoServer" factoryName="Django server">
       <module name="stock_god" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -268,6 +303,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Any" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -284,24 +324,32 @@
       <workItem from="1554622265830" duration="21157000" />
       <workItem from="1554774126000" duration="18926000" />
       <workItem from="1554861598464" duration="26386000" />
-      <workItem from="1554947324345" duration="13714000" />
+      <workItem from="1554947324345" duration="15281000" />
+      <workItem from="1555052977794" duration="1196000" />
+      <workItem from="1555130642048" duration="2065000" />
+      <workItem from="1555298242496" duration="6009000" />
+      <workItem from="1555461406469" duration="1591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102325000" />
+<<<<<<< Updated upstream
+    <option name="totallyTimeSpent" value="102430000" />
+=======
+    <option name="totallyTimeSpent" value="114753000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17493297" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1541555" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27298445" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37393767" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2719547" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37393767" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -382,31 +430,20 @@
           <line>82</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sentiment-analysis/Any.py</url>
+          <line>142</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sentiment-analysis/Any.py</url>
+          <line>177</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/wsgiref/handlers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="343" selection-start-line="343" selection-end-line="343" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Program Files (x86)/Python/Lib/site-packages/django/utils/deprecation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1613">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/rest_framework/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/django/db/models/manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -479,6 +516,7 @@
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/data/data.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -488,14 +526,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sentiment-analysis/Any.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2215">
-          <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
+        <state relative-caret-position="361">
+          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
           <folding>
-            <element signature="e#17#37#0" expanded="true" />
+            <element signature="e#17#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/django/views/debug.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -617,6 +657,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/stock_god/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -629,7 +670,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stock/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="228">
           <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
           <folding>
             <element signature="e#0#80#0" expanded="true" />
@@ -637,6 +678,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Stashed changes
     <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/rest_framework/request.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-148">
@@ -689,9 +732,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/jupyter_client/threaded.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="2223">
+          <caret line="117" column="31" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="31" />
+=======
+        <state relative-caret-position="114">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="28" lean-forward="true" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock_god/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="437">
+          <caret line="26" column="102" selection-start-line="26" selection-start-column="102" selection-end-line="26" selection-end-column="102" />
+=======
+        <state relative-caret-position="589">
+          <caret line="36" column="36" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+>>>>>>> Stashed changes
+          <folding>
+            <element signature="e#643#675#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/requests/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
+        <state relative-caret-position="9006">
+          <caret line="491" selection-start-line="491" selection-end-line="491" />
+=======
+        <state relative-caret-position="225">
+          <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/stanfordcorenlp/corenlp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="237" column="23" lean-forward="true" selection-start-line="237" selection-start-column="23" selection-end-line="237" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../LSTM-Sentiment-Analysis-master/LSTM_emotion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1862">
+          <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9006">
+          <caret line="491" selection-start-line="491" selection-end-line="491" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/stock_god/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="2223">
           <caret line="117" column="31" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="31" />
         </state>
       </provider>
@@ -705,7 +835,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stock/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="437">
           <caret line="26" column="102" selection-start-line="26" selection-start-column="102" selection-end-line="26" selection-end-column="102" />
           <folding>
             <element signature="e#717#749#0" expanded="true" />
@@ -713,27 +843,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/rest_framework/views.py">
+    <entry file="file://$PROJECT_DIR$/sentiment-analysis/Any.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="491" selection-start-line="491" selection-end-line="491" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Anaconda3/envs/tensorflow/Lib/site-packages/jupyter_client/threaded.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stock/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="82" column="98" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="98" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="43">
+          <caret line="155" column="65" selection-start-line="155" selection-start-column="65" selection-end-line="155" selection-end-column="65" />
         </state>
       </provider>
     </entry>

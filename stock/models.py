@@ -29,3 +29,17 @@ class Selection(models.Model):
     gmt_create = models.DateField(auto_now_add=True)
     def __str__(self):
         return '()'.format(self.stock_code, self.owner)
+
+class propensity_statistics(models.Model):
+    stock_code = models.CharField(max_length=6)
+    date= models.DateField()
+    total_posts=models.IntegerField()
+    bullish_num=models.IntegerField()
+    bearish_num=models.IntegerField()
+    neutral_num=models.IntegerField()
+    storage_location=models.CharField(max_length=100)
+    description = models.TextField(null=True)
+    def __str__(self):
+        return '()'.format(self.stock_code, self.date)
+    class Meta:
+        unique_together = ("stock_code", "date")

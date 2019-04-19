@@ -60,3 +60,9 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Customer
         fields = ('id', 'username', 'selection_set')
+
+#返回股评统计
+class StatisticsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.propensity_statistics
+        fields = ('stock_code', 'date', 'total_posts','bullish_num','bearish_num','neutral_num','storage_location','description')
