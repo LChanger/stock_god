@@ -119,6 +119,17 @@ class StockInfoList(generics.ListCreateAPIView):
             else:
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response(datas)
+    def get(self, request, *args, **kwargs):
+        date =request.GET.get("date")
+        if date==None:return super().get(request, *args, **kwargs)
+        stock_codes=models.propensity_statistics.objects.filter(date=date)  #
+        codes=[]
+        for i in stock_codes:
+            codes.append(i.stock_code)
+        stock_info=models.stock_info.objects.filter(stock_id__in=codes)
+        serializer = self.get_serializer(stock_info, many=True)
+        return Response(serializer.data)
+
 # 增删改查 stock_info
 class StockInfoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.stock_info.objects.all()
@@ -192,29 +203,32 @@ class CommentAnalysis(APIView):
     """
     comment annalysis  by rules  and  LSTM
     """
+    queryset = models.propensity_statistics.objects.all()
+    serializer_class = StatisticsSerializer
     from stanfordcorenlp import StanfordCoreNLP
     nlp = StanfordCoreNLP(r'F:\Graduationproject\stanford-corenlp-full-2016-10-31', lang='zh')
     from sentiment_analysis import Any
     a = Any.Analysis()
     a.sentiment_init()
-    # def __del__(self):
+    # def __del__(self):  #post请求结束后，该CommentAnalysis 对象会关闭 所以导致关掉了nlp
+    #     print("wo guan bi le ")
     #     self.nlp.close()
     def post(self, request, format=None):
         comment = request.data.get('comment')
         if comment==None:
             return Response('输入为空', status=status.HTTP_400_BAD_REQUEST)
-        pposRules,pnegRules=self.sentiment_by_rules(comment)
+        pposRules=self.sentiment_by_rules(comment)
         data = {'pposRules': pposRules,
-                'pnegRules': pnegRules,
                 }
         import json
         payload = json.dumps(data)
         return Response(payload,status=status.HTTP_201_CREATED)
     def sentiment_by_rules(self,comment):
-        posscore, negscore=self.a.sentiment_by_rules(self.nlp.word_tokenize(comment), self.nlp.dependency_parse(comment))
-        ppos= float(posscore)/ (float(posscore)+ float(negscore))#正向可能性
-        pneg=1-ppos#负向可能性
-        return ppos,pneg
+        import scipy.special
+        seg=self.nlp.word_tokenize(comment)
+        posscore, negscore=self.a.sentiment_by_rules(seg, self.nlp.dependency_parse(comment))
+        ppos= scipy.special.expit(float(posscore)-float(negscore))#正向可能性
+        return ppos
 def add_stock_info(request):
     if request.method=='POST':
         serializer = stock_info_serializer(data=request.body)

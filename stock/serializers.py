@@ -56,13 +56,14 @@ class CustomerRegisterSerializer(serializers.ModelSerializer):
         fields = ('id', 'username','password', 'sex','gmt_create','user_phone')
 #返回用户的选股列表
 class CustomerSerializer(serializers.ModelSerializer):
-    selection_set = models.Customer.objects.filter(username__exact='owner.username')
+    selection_set = models.Customer.objects.filter(username__exact='Customer.username')
     class Meta:
         model = models.Customer
         fields = ('id', 'username', 'selection_set')
 
 #返回股评统计
 class StatisticsSerializer(serializers.ModelSerializer):
+    # stock_name = models.stock_info.objects.get(stock_id='stock_code')
     class Meta:
         model = models.propensity_statistics
         fields = ('stock_code', 'date', 'total_posts','bullish_num','bearish_num','neutral_num','storage_location','description')

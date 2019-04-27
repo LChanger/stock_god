@@ -26,7 +26,7 @@ SECRET_KEY = '2n@ow9)va7#tetzuqu@ej5-um%e&4t1ijp_+!^93%2h0w$7jx2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'stock',
     'rest_framework',
     'django.contrib.sites',
+    'corsheaders',#解决跨域问题
+
 ]
 
 MIDDLEWARE = [
@@ -51,8 +53,40 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'corsheaders.middleware.CorsMiddleware',#解决跨域问题
+    'django.middleware.common.CommonMiddleware', # 注意顺序
 
+]
+#解决跨域问题
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = (
+    '*'
+)
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    'VIEW',
+)
+
+CORS_ALLOW_HEADERS = (
+    'XMLHttpRequest',
+    'X_FILENAME',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
+#以上解决跨域问题
 ROOT_URLCONF = 'stock_god.urls'
 
 TEMPLATES = [

@@ -1,4 +1,4 @@
-# encoding:utf-8
+  # encoding:utf-8
 import codecs,jieba
 from gensim import corpora
 from collections import defaultdict
@@ -164,7 +164,7 @@ if __name__ == '__main__':
     total1, right1 = 0, 0#传统方法
     total, right = 0, 0
     with StanfordCoreNLP(r'F:\Graduationproject\stanford-corenlp-full-2016-10-31', lang='zh') as nlp:
-        for tempstr in a.deal_wrap('F:\\spider\\trainData416\\neu.txt'):
+        for tempstr in a.deal_wrap('F:\\spider\\trainData416\\neg.txt'):
             sentence_pscore, sentence_nscore = 0, 0
             sentence_pscore1, sentence_nscore1 = 0, 0
             for x in a.preteat_clause(tempstr):
@@ -182,9 +182,9 @@ if __name__ == '__main__':
             total_nscore += sentence_nscore
             print(tempstr, '\n',sentence_pscore1 - sentence_nscore1,'\n',sentence_pscore - sentence_nscore)
             # if sentence_pscore - sentence_nscore != sentence_pscore1 - sentence_nscore1:
-            if (sentence_pscore ==sentence_nscore): right += 1
+            if (sentence_pscore <=sentence_nscore): right += 1
             total += 1
-            if (sentence_pscore1 == sentence_nscore1): right1 += 1
+            if (sentence_pscore1 <= sentence_nscore1): right1 += 1
             total1 += 1
     print(right, total)
     print(right1, total1)

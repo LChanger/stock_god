@@ -28,6 +28,8 @@ router.register(r'groups', views.GroupViewSet)
 router.register(r'customers',views.CustomerViewSet)
 router.register(r'selections',views.SelectionViewSet)
 router.register(r'statistics',views.StatisticsViewSet)
+# router.register(r'analysis', views.CommentAnalysis)#评论倾向性分析
+# router.register(r'comment/analysis/',views.CommentAnalysis.as_view())
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
