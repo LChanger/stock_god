@@ -15,7 +15,6 @@ Including another URLconf
 """
 
 # Routers provide an easy way of automatically determining the URL conf.
-from django.conf.urls import url
 from django.urls import path
 from stock import views
 from rest_framework.urlpatterns import format_suffix_patterns

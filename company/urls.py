@@ -14,36 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from stock import views
+from company import views
 from django.conf.urls import url, include
-from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 from django.urls import path, include
 
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'customers',views.CustomerViewSet)
-router.register(r'selections',views.SelectionViewSet)
-router.register(r'statistics',views.StatisticsViewSet)
+router.register(r'industry', views.IndustryViewSet)
+router.register(r'relation', views.RelationInfoViewSet)
+router.register(r'comrelation',views.ComRelationViewSet)
+
 # router.register(r'analysis', views.CommentAnalysis)#评论倾向性分析
 # router.register(r'comment/analysis/',views.CommentAnalysis.as_view())
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
-    path('', include('stock.urls')),
-    path('company/', include('company.urls')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^register', views.UserRegisterAPIView.as_view()),
-    url(r'^login', views.UserLoginAPIView.as_view()),
+    path(r'company/', views.CompanyList.as_view()),
+    path(r'company/<int:pk>/', views.CompanyDetail.as_view()),
+    path(r'blocktrade/', views.BlockTradeList.as_view()),
 ]
 
-# urlpatterns = [
-#     url(r'^admin/', admin.site.urls),
-#     url(r'^index/', views.index),
 
-# ]

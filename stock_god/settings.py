@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django.contrib.sites',
     'corsheaders',#解决跨域问题
+    'company',
 
 ]
 
