@@ -34,7 +34,13 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     path(r'company/', views.CompanyList.as_view()),
     path(r'company/<int:pk>/', views.CompanyDetail.as_view()),
+    path(r'mergereorganization/', views.MergeReList.as_view()),
     path(r'blocktrade/', views.BlockTradeList.as_view()),
+    path(r'majorcontract/', views.MajorContractList.as_view()),
+    path(r'optioninvest/', views.OptionInvestList.as_view()),
+    path(r'relatedtransaction/', views.RelatedTransactionList.as_view()),
+    path(r'person/', views.PersonList.as_view()),
+    path(r'personcom/', views.PersonComList.as_view()),
 ]
 
 
