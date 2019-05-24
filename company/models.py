@@ -37,11 +37,11 @@ class com_per(models.Model):
 class company(models.Model):
     com_name = models.CharField(max_length=100,null=False,unique=True)
     com_en_name=models.CharField(max_length=100,null=True,unique=True)
-    stock_code_A=models.IntegerField(null=True)#A股代码
+    stock_code_A=models.CharField(max_length=20,null=True,unique=True)#A股代码
     stock_name_A=models.CharField(max_length=20,null=True,unique=True)#A股简称
-    stock_code_B=models.IntegerField(null=True)#B股代码
+    stock_code_B=models.CharField(max_length=20,null=True,unique=True)#B股代码
     stock_name_B=models.CharField(max_length=20,null=True,unique=True)#B股简称
-    stock_code_H=models.IntegerField(null=True)#H股代码
+    stock_code_H=models.CharField(max_length=20,null=True,unique=True)#H股代码
     stock_name_H=models.CharField(max_length=20,null=True,unique=True)#H股简称
     industry=models.ForeignKey(industry,on_delete=models.PROTECT,db_constraint=False,null=True,)#所属行业
     registered_capital=models.CharField(max_length=20,null=True,)
@@ -57,13 +57,13 @@ class block_trade(models.Model):
     company_main = models.ForeignKey(company, on_delete=models.CASCADE, related_name='trade_company',
                                      db_constraint=False)  # 公司
     transaction_time=models.DateField(null=True)#交易日期
-    up_and_down=models.FloatField(max_length=100)#涨跌幅（百分比）
-    closing_price=models.FloatField(null=True)#收盘价（元）
-    transaction_price=models.FloatField(null=True)#成交价（元）
-    folding_rate=models.FloatField(null=True)#折溢率（百分数）
-    volume=models.FloatField(null=True)#成交量 （万股）
-    turnover=models.FloatField(null=True)#成交额（万元）
-    turnover_divide_market=models.FloatField(null=True)#成交额/流通市值(%)
+    up_and_down=models.CharField(max_length=20,null=True,blank=True) #涨跌幅（百分比）
+    closing_price=models.CharField(max_length=20,null=True,blank=True) #收盘价（元）
+    transaction_price=models.CharField(max_length=20,null=True,blank=True) #成交价（元）
+    folding_rate=models.CharField(max_length=20,null=True,blank=True) #折溢率（百分数）
+    volume=models.CharField(max_length=20,null=True,blank=True) #成交量 （万股）
+    turnover=models.CharField(max_length=20,null=True,blank=True) #成交额（万元）
+    turnover_divide_market=models.CharField(max_length=20,null=True,blank=True) #成交额/流通市值(%)
     buyer=models.ForeignKey(company,on_delete=models.CASCADE,related_name='trade_buyer',db_constraint=False)
     seller=models.ForeignKey(company,on_delete=models.CASCADE,related_name='trade_seller',db_constraint=False)
     class Meta:
@@ -123,6 +123,23 @@ class related_transaction(models.Model):
     notic_date=models.DateField()#公告日期
     class Meta:
         db_table='related_transaction'
+
+#十大流通股东表
+class cir_shareholder(models.Model):
+    company_main = models.ForeignKey(company,on_delete=models.CASCADE,related_name='cir_company', db_constraint=False)#公司
+    rank=models.IntegerField()#名次
+    shareholder=models.ForeignKey(company, on_delete=models.CASCADE,related_name='cir_shareholder_com',db_constraint=False)#股东名称
+    nature=models.CharField(max_length=20,null=True,blank=True)  # 股东性质
+    type=models.CharField(max_length=20,null=True,blank=True)  # 股份类型
+    sharenum=models.CharField(max_length=20,null=True,blank=True)  # 持股数
+    percentage_share=models.CharField(max_length=20,null=True,blank=True)  # 占流通股比例
+    change=models.CharField(max_length=20,null=True,blank=True)  # 增减股
+    percentage_change=models.CharField(max_length=20,null=True,blank=True)  #变动比例
+    date=models.DateField()#日期
+
+    class Meta:
+        db_table='cir_shareholder'
+
 
 #公司关系表
 class com_relation(models.Model):

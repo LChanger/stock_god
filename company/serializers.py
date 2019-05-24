@@ -31,11 +31,13 @@ class company_serializer(serializers.ModelSerializer):
 class block_trade_serializer(serializers.ModelSerializer):
     buyer_name=serializers.CharField(source='buyer.com_name',allow_null=True,allow_blank=True)
     seller_name = serializers.CharField(source='seller.com_name', allow_null=True, allow_blank=True)
+    company_main_name=serializers.CharField(source='company_main.com_name', allow_null=True, allow_blank=True)
     class Meta:
         model=models.block_trade
         fields=('__all__')
 #并购重组
 class merge_reorganization_serializer(serializers.ModelSerializer):
+    company_main_name=serializers.CharField(source='company_main.com_name', allow_null=True, allow_blank=True)
     buyer_name=serializers.CharField(source='buyer.com_name',allow_null=True,allow_blank=True)
     seller_name = serializers.CharField(source='seller.com_name', allow_null=True, allow_blank=True)
     target_name = serializers.CharField(source='transaction_target.com_name', allow_null=True, allow_blank=True)
@@ -44,6 +46,7 @@ class merge_reorganization_serializer(serializers.ModelSerializer):
         fields=('__all__')
 #重大合同
 class major_contract_serializer(serializers.ModelSerializer):
+    company_main_name=serializers.CharField(source='company_main.com_name', allow_null=True, allow_blank=True)
     signing_body_name = serializers.CharField(source='signing_body.com_name', allow_null=True, allow_blank=True)
     body_relation_name = serializers.CharField(source='body_relation.name', allow_null=True, allow_blank=True)
     signing_others_name = serializers.CharField(source='signing_others.com_name', allow_null=True, allow_blank=True)
@@ -75,18 +78,28 @@ class related_transaction_serializer(serializers.ModelSerializer):
     class Meta:
         model=models.related_transaction
         fields=('__all__')
+#十大流通股东
+class cir_shareholder_serializer(serializers.ModelSerializer):
+    company_main_name = serializers.CharField(source='company_main.com_name', allow_null=True, allow_blank=True,
+                                              required=False)
+    shareholder_name = serializers.CharField(source='shareholder.com_name', allow_null=True, allow_blank=True,
+                                              required=False)
+    class Meta:
+        model=models.cir_shareholder
+        fields=('__all__')
+
 
 #人员列表
 class person_serializer(serializers.ModelSerializer):
     # company_set = serializers.PrimaryKeyRelatedField(label='关联公司',queryset=models.company.objects.all(),required=False,many=True)
     # affiliated_com_name= com_per_serializer(read_only=True,many=True,label='外键')
-    affiliated_com = serializers.StringRelatedField(many=True)
+    affiliated_com = serializers.StringRelatedField(many=True,read_only=True)
     class Meta:
         model=models.person
         fields=('__all__')
 #人员公司关联列表
 class com_per_serializer(serializers.ModelSerializer):
-    person=person_serializer(many=False, read_only=True)
+    person_name=person_serializer(many=False, read_only=True)
     com_name=serializers.CharField(source='company.com_name', allow_null=True, allow_blank=True,
                                               required=False)
     class Meta:

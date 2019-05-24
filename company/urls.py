@@ -34,13 +34,17 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     path(r'company/', views.CompanyList.as_view()),
     path(r'company/<int:pk>/', views.CompanyDetail.as_view()),
+    path(r'company/query/',views.CompanyQuery.as_view()),#按公司名称查询
     path(r'mergereorganization/', views.MergeReList.as_view()),
     path(r'blocktrade/', views.BlockTradeList.as_view()),
+    path(r'blocktrade/query/', views.BlockTradeQuery.as_view()),#按公司名称查询大宗交易
     path(r'majorcontract/', views.MajorContractList.as_view()),
     path(r'optioninvest/', views.OptionInvestList.as_view()),
     path(r'relatedtransaction/', views.RelatedTransactionList.as_view()),
+    path(r'shareholder/',views.CirShareholderList.as_view()),#十大流通股东
     path(r'person/', views.PersonList.as_view()),
     path(r'personcom/', views.PersonComList.as_view()),
+    path(r'comneo/',views.ComsList.as_view()),#求任意两公司之间的关系neo4j 操作
 ]
 
 
